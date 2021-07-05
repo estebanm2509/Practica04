@@ -58,8 +58,8 @@ public class ServicioUsuario {
 			@FormParam(value = "cedula") String cedula,
 			@FormParam(value = "correo") String correo,
 			@FormParam(value = "contrasenia") String contrasenia) {
-		try {
-			Cliente cliente = clienteDAO.buscarPorCedula(cedula);
+		Cliente cliente = clienteDAO.buscarPorCedula(cedula);
+		if (cliente != null) {
 			Usuario usuario = new Usuario();
 			usuario.setDuenio(cliente);
 			usuario.setCorreo(correo);
@@ -67,9 +67,9 @@ public class ServicioUsuario {
 			usuario.setRol(RolUsuario.CLIENTE);
 			usuarioDAO.agregar(usuario);
 			return Response.status(201)
-						   .entity("Usuario creado correctamente.")
-						   .build();	
-		} catch (NullPointerException e) {
+					   	   .entity("Usuario creado correctamente.")
+					       .build();	
+		} else {
 			return Response.status(404)
 						   .entity("El cliente no se encuentra registrado.")
 						   .build();
