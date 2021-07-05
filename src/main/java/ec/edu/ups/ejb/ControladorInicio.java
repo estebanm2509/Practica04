@@ -1,6 +1,7 @@
 package ec.edu.ups.ejb;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,8 +37,12 @@ public class ControladorInicio implements Serializable {
 	
 	@PostConstruct
 	public void init() {
-		bodega = bodegaDAO.buscarPorDescripcion("Principal");
-		inventario = bodega.getInventario();
+		try {
+			bodega = bodegaDAO.buscarPorDescripcion("Principal");
+			inventario = bodega.getInventario();
+		} catch (NullPointerException e) {
+			inventario = new ArrayList<Existencia>();
+		}
 	}
 	
 	public Bodega getBodega() {

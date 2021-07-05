@@ -15,7 +15,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import ec.edu.ups.jpa.BodegaDAO;
-import ec.edu.ups.jpa.ExistenciaDAO;
 import ec.edu.ups.jpa.FacturaDAO;
 import ec.edu.ups.modelos.Bodega;
 import ec.edu.ups.modelos.Existencia;

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
-@DiscriminatorValue(value = "1")
+@DiscriminatorValue(value = "0")
 public class Cliente extends Persona implements Serializable {
 
 	private static final long serialVersionUID = 4267751222773389784L;

@@ -2,7 +2,8 @@ package ec.edu.ups.modelos;
 
 public enum RolUsuario {
 	ADMINISTRADOR("Administrador"),
-	EMPLEADO("Empleado");
+	EMPLEADO("Empleado"),
+	CLIENTE("Cliente");
 	
 	private String etiqueta;
 	

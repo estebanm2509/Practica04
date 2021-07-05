@@ -2,6 +2,7 @@ package ec.edu.ups.jpa;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import ec.edu.ups.modelos.Bodega;
@@ -23,6 +24,10 @@ public class BodegaDAO extends DAO<Bodega, Integer> {
 	
 	public Bodega buscarPorDescripcion(String descripcion) {
 		String jpql = "SELECT b FROM Bodega b WHERE b.descripcion = '" + descripcion + "'";
-		return gestor.createQuery(jpql, Bodega.class).getSingleResult();
+		try {
+			return gestor.createQuery(jpql, Bodega.class).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 }

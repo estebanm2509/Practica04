@@ -24,7 +24,6 @@ import ec.edu.ups.modelos.Cliente;
 import ec.edu.ups.modelos.Existencia;
 import ec.edu.ups.modelos.Factura;
 import ec.edu.ups.modelos.FacturaDetalle;
-import ec.edu.ups.modelos.Producto;
 import ec.edu.ups.modelos.RolUsuario;
 import ec.edu.ups.modelos.Usuario;
 

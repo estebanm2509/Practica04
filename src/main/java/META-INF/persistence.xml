@@ -7,6 +7,8 @@
 		<class>ec.edu.ups.modelos.Existencia</class>
 		<class>ec.edu.ups.modelos.Factura</class>
 		<class>ec.edu.ups.modelos.FacturaDetalle</class>
+		<class>ec.edu.ups.modelos.Pedido</class>
+		<class>ec.edu.ups.modelos.PedidoDetalle</class>
 		<class>ec.edu.ups.modelos.Persona</class>
 		<class>ec.edu.ups.modelos.Producto</class>
 		<class>ec.edu.ups.modelos.Usuario</class>

@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name = "personas")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "entidad", discriminatorType = DiscriminatorType.INTEGER)
-public abstract class Persona implements Serializable {
+public class Persona implements Serializable {
 
 	private static final long serialVersionUID = -6196306600736841031L;
 
@@ -36,6 +36,14 @@ public abstract class Persona implements Serializable {
 	protected String apellido;
 	
 	public Persona() {
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public String getCedula() {

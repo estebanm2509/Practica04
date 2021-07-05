@@ -15,10 +15,23 @@
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <servlet>
+    <servlet-name>Practica04</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+    	<param-name>jersey.config.server.provider.packages</param-name>
+    	<param-value>ec.edu.ups.rest</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
     <url-pattern>*.jsf</url-pattern>
     <url-pattern>*.xhtml</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>Practica04</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
   </servlet-mapping>
 </web-app>
