@@ -76,6 +76,46 @@ public class ServicioUsuario {
 		}
 	}
 	
+	@PUT
+	@Path(value = "/modificar-cuenta-usuario")
+	@Consumes(value = MediaType.APPLICATION_JSON)
+	@Produces(value = MediaType.TEXT_PLAIN)
+	public Response modificarCuentaUsuario(String usuarioJSON) {
+		Jsonb constructor = JsonbBuilder.create();
+		try {
+			Usuario usuario = constructor.fromJson(usuarioJSON, Usuario.class);
+			usuario.setRol(RolUsuario.CLIENTE);
+			usuario.setActivo(true);
+			usuarioDAO.modificar(usuario);
+			return Response.status(204)
+						   .entity("Usuario modificado correctamente.")
+						   .build();	
+		} catch (NullPointerException e) {
+			return Response.status(404)
+						   .entity("No existe el usuario especificado.")
+						   .build();
+		}
+	}
+	
+	@PUT
+	@Path(value = "/modificar-datos-personales")
+	@Consumes(value = MediaType.APPLICATION_JSON)
+	@Produces(value = MediaType.TEXT_PLAIN)
+	public Response modificarDatosPersonales(String clienteJSON) {
+		Jsonb constructor = JsonbBuilder.create();
+		try {
+			Cliente cliente = constructor.fromJson(clienteJSON, Cliente.class);
+			clienteDAO.modificar(cliente);
+			return Response.status(204)
+						   .entity("Usuario modificado correctamente.")
+						   .build();	
+		} catch (NullPointerException e) {
+			return Response.status(404)
+						   .entity("No existe el usuario especificado.")
+						   .build();
+		}
+	}
+	
 	@DELETE
 	@Path(value = "/eliminar-cuenta")
 	@Produces(value = MediaType.TEXT_PLAIN)
