@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ import javax.persistence.Table;
 @Table(name = "personas")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "entidad", discriminatorType = DiscriminatorType.INTEGER)
+@DiscriminatorValue(value = "0")
 public class Persona implements Serializable {
 
 	private static final long serialVersionUID = -6196306600736841031L;

@@ -19,10 +19,9 @@
 				<h:commandLink class="btn btn-secondary float-right mx-2"
 					actionListener="#{controladorSesion.cerrarSesion()}"
 					value="Cerrar sesión"/>
-				<a class="btn btn-secondary float-right mx-2"
-					href="consulta-bodegas.xhtml">
-					Bodegas
-				</a>
+				<h:commandLink class="btn btn-secondary float-right mx-2"
+					actionListener="#{controladorSesion.redirigir('administrador/consulta-bodegas.xhtml')}"
+					value="Bodegas"/>
 			</div>
 		</div>
 	</h:form>

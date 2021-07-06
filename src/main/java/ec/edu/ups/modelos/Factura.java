@@ -31,7 +31,7 @@ public class Factura implements Serializable {
 	@Column(name = "fecha", nullable = false)
 	private LocalDate fecha;
 	
-	@OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	

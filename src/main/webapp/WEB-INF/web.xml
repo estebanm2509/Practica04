@@ -24,6 +24,10 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/404.xhtml</location>	
+  </error-page>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>

@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.faces.annotation.FacesConfig.Version;
 import javax.faces.application.FacesMessage;
@@ -22,7 +22,7 @@ import ec.edu.ups.modelos.Usuario;
 
 @FacesConfig(version = Version.JSF_2_3)
 @Named
-@SessionScoped
+@RequestScoped
 public class ControladorVerExistencia implements Serializable {
 
 	private static final long serialVersionUID = -4723075873529578065L;

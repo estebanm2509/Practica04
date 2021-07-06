@@ -29,6 +29,7 @@ public class ControladorInicio implements Serializable {
 	private BodegaDAO bodegaDAO;
 	
 	private Bodega bodega;
+	private List<Bodega> bodegas;
 	private List<Existencia> inventario;
 	private CategoriaProducto categoria;
 	
@@ -38,7 +39,8 @@ public class ControladorInicio implements Serializable {
 	@PostConstruct
 	public void init() {
 		try {
-			bodega = bodegaDAO.buscarPorDescripcion("Principal");
+			bodegas = bodegaDAO.listar();
+			bodega = bodegas.get(0); 
 			inventario = bodega.getInventario();
 		} catch (NullPointerException e) {
 			inventario = new ArrayList<Existencia>();
@@ -70,7 +72,7 @@ public class ControladorInicio implements Serializable {
 	}
 	
 	public List<Bodega> getBodegas() {
-		return bodegaDAO.listar();
+		return bodegas;
 	}
 	
 	public CategoriaProducto[] getCategorias() {

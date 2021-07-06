@@ -37,7 +37,7 @@ public class ControladorSesion implements Serializable {
 	public void init() {
 		ExternalContext contexto = FacesContext.getCurrentInstance().getExternalContext();
 		try {
-			contexto.getSession(true);
+			//contexto.getSession(true);
 			usuario = (Usuario) contexto.getSessionMap().get("usuario-conectado");
 			if (usuario != null) {
 				if (usuario.isActivo()) {
@@ -99,7 +99,6 @@ public class ControladorSesion implements Serializable {
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Este usuario esta inhabilitado.", "")
 				);
 			}
-			
 		} catch (Exception e) {
 			contexto.addMessage(null, 
 				new FacesMessage(FacesMessage.SEVERITY_ERROR, "El usuario con el correo especificado no existe.", "")
@@ -110,9 +109,20 @@ public class ControladorSesion implements Serializable {
 	public void cerrarSesion() {
 		ExternalContext contexto = FacesContext.getCurrentInstance().getExternalContext();
 		try {
-			contexto.getSessionMap().remove("usuario-conectado");
+			contexto.getSessionMap().clear();
 			contexto.invalidateSession();
 			contexto.redirect("/Practica04/inicio-sesion.xhtml?faces-redirect=true");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void redirigir(String url) {
+		ExternalContext contexto = FacesContext.getCurrentInstance().getExternalContext();
+		try {
+			contexto.getSessionMap().remove("bodega");
+			contexto.getSessionMap().remove("existencia");
+			contexto.redirect("/Practica04/" + url + "?faces-redirect=true");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
